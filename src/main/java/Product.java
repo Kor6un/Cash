@@ -1,22 +1,33 @@
 import java.util.Iterator;
 
-public class Product extends Entity {
+public class Product {
 
-    private int id;
+    private String name;
 
     private double cost;
 
     private boolean promotion;
 
-    public Product(String name, int id, double cost, boolean promotion) {
-        super(name);
-        this.id = id;
+    public Product(String name, double cost, boolean promotion) {
+        this.name = name;
         this.cost = cost;
         this.promotion = promotion;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public boolean isPromotion() {
+        return promotion;
+    }
+
     @Override
     public String toString() {
-        return   "id: " + id + " " + this.getName() + " " + cost + "$ " + promotion;
+        return    name + " " + cost + "$ ";
     }
 }

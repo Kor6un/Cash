@@ -1,18 +1,22 @@
-public class Card extends Entity {
-
-    private int id;
+public class Card {
 
     private int number;
 
-    public Card(String name, int id, int number) {
-        super(name);
-        this.id = id;
+    public Card(int number) {
+        this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
         this.number = number;
     }
 
     @Override
     public String toString() {
 
-        return "id: " + id + "; Discount card: " + number;
+        return "Card №: " + number;
     }
 }

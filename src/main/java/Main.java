@@ -1,32 +1,32 @@
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        List<Entity> products = Arrays.asList(
-                new Product("Pen", 0, 0.39, false),
-                new Product("Clip", 1, 0.39, true),
-                new Product("Pencil", 2, 1.98, false),
-                new Product("Ruler", 3, 0.39, true),
-                new Product("Copybook", 4, 0.39, false),
-                new Product("Protractor", 5, 0.39, false),
-                new Product("Mechanical pencil", 6, 0.39, true));
 
-        for (Entity p : products) {
+        List<Product> products = Arrays.asList(
+                new Product("Pen", 0.39, false),
+                new Product("Clip", 0.39, true),
+                new Product("Pencil", 1.98, false),
+                new Product("Ruler", 0.39, true),
+                new Product("Copybook", 0.39, false),
+                new Product("Protractor", 0.39, false),
+                new Product("Mechanical pencil", 0.39, true));
+
+        for (Product p : products) {
             System.out.println(p);
         }
 
-        List<Entity> cards = Arrays.asList(
-                new Card("Discount card", 0, 2134),
-                new Card("Discount card", 1, 1234),
-                new Card("Discount card", 2, 7895),
-                new Card("Discount card", 3, 6542));
+        Set<Integer> cardNumbers = new HashSet<>();
+        cardNumbers.add(1233);
+        cardNumbers.add(2132);
+        cardNumbers.add(6544);
+        cardNumbers.add(9875);
+        cardNumbers.add(1598);
 
-        for (Entity e : cards) {
-            System.out.println(e);
-        }
+        System.out.println(cardNumbers);
+        Cash cash = new Cash(products.get(0).getCost(), 4, products.get(0).isPromotion());
+        double result = cash.calculate(products.get(0).getCost(), 4, products.get(0).isPromotion());
+        System.out.println(result);
     }
 }
