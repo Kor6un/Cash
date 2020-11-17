@@ -6,12 +6,9 @@ public class Product {
 
     private double cost;
 
-    private boolean promotion;
-
-    public Product(String name, double cost, boolean promotion) {
+    public Product(String name, double cost) {
         this.name = name;
         this.cost = cost;
-        this.promotion = promotion;
     }
 
     public String getName() {
@@ -20,10 +17,6 @@ public class Product {
 
     public double getCost() {
         return cost;
-    }
-
-    public boolean isPromotion() {
-        return promotion;
     }
 
     @Override
