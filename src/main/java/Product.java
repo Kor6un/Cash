@@ -19,6 +19,14 @@ public class Product {
         return cost;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
     @Override
     public String toString() {
         return    name + " " + cost + "$ ";
