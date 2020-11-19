@@ -1,31 +1,29 @@
-import java.text.DecimalFormat;
-import java.util.Locale;
-
 public class CashCalculator implements Calculator {
 
-    private Storage storage;
-    private static double resultCash;
+    private final Check check;
 
-    public CashCalculator( Storage storage) {
-        this.storage = storage;
+    public CashCalculator( Check check) {
+        this.check = check;
     }
 
     @Override
     public double calculate() {
 
-        if (storage.getProduct().isPromotion()) {
-            if (storage.getQuantity() >= 5) {
-                resultCash = storage.getProduct().getPrice() * storage.getQuantity() * 0.9 ;
+        double resultCash;
+        if (check.getProduct().isPromotion()) {
+            if (check.getQuantity() >= 5) {
+                resultCash = check.getProduct().getPrice() * check.getQuantity() * 0.9 ;
             } else {
-                resultCash = storage.getProduct().getPrice()*storage.getQuantity();
+                resultCash = check.getProduct().getPrice()* check.getQuantity();
             }
         } else {
-            resultCash = storage.getProduct().getPrice()*storage.getQuantity();
+            resultCash = check.getProduct().getPrice()* check.getQuantity();
         }
 
-        if (storage.isDiscount()) {
-            resultCash = resultCash * 0.85;
+        if (check.isDiscount(check.getDiscountCardNumber())) {
+            return resultCash * 0.5;
+        } else {
+            return resultCash;
         }
-        return resultCash;
     }
 }

@@ -1,4 +1,4 @@
 public interface Discount {
 
-    boolean isDiscount();
+    boolean isDiscount(int discountCardNumber);
 }
