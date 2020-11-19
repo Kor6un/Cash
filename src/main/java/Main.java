@@ -15,26 +15,21 @@ public class Main {
                 new Product("Mechanical pencil Berlingo", 1),
                 new Product("Mechanical pencil Parker", 2),
                 new Product("Automatic pen Berlingo", 5),
-                new Product("Automatic pen Hatber", 10));
+                new Product("Automatic pen Hatber", 10, true));
 
-//        Set<Integer> cardNumbers = new HashSet<>();
-//            cardNumbers.add(1233);
-//            cardNumbers.add(2132);
-//            cardNumbers.add(6544);
-//            cardNumbers.add(9875);
-//            cardNumbers.add(1598);
+        List<Cash> cashList = Arrays.asList(
+                new Cash(products.get(0), 4),
+                new Cash(products.get(0), 5),
+                new Cash(products.get(0), 4, 1234),
+                new Cash(products.get(0), 5, 1234),
+                new Cash(products.get(1), 4),
+                new Cash(products.get(1), 5),
+                new Cash(products.get(1), 4, 1234),
+                new Cash(products.get(1), 5, 1234));
 
-         Check check = new Check(products.get(0), 5);
-         Check check1 = new Check(products.get(10), 125, 1233);
-
-         CashCalculator cashCalculator = new CashCalculator(check);
-         CashCalculator cashCalculator1 = new CashCalculator(check1);
-
-        System.out.println(cashCalculator.calculate());
-        System.out.println(cashCalculator1.calculate());
-      //  System.out.println(check.getProduct().isPromotion());
-        System.out.println(check1.isDiscount(check1.getDiscountCardNumber()));
-
+        for (Cash c : cashList) {
+            System.out.println(c);
+        }
 
     }
 }

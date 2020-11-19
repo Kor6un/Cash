@@ -1,26 +1,26 @@
 public class CashCalculator implements Calculator {
 
-    private final Check check;
+    private final Cash cash;
 
-    public CashCalculator( Check check) {
-        this.check = check;
+    public CashCalculator( Cash cash) {
+        this.cash = cash;
     }
 
     @Override
     public double calculate() {
 
         double resultCash;
-        if (check.getProduct().isPromotion()) {
-            if (check.getQuantity() >= 5) {
-                resultCash = check.getProduct().getPrice() * check.getQuantity() * 0.9 ;
+        if (cash.getProduct().isPromotion()) {
+            if (cash.getQuantity() >= 5) {
+                resultCash = cash.getProduct().getPrice() * cash.getQuantity() * 0.9 ;
             } else {
-                resultCash = check.getProduct().getPrice()* check.getQuantity();
+                resultCash = cash.getProduct().getPrice()* cash.getQuantity();
             }
         } else {
-            resultCash = check.getProduct().getPrice()* check.getQuantity();
+            resultCash = cash.getProduct().getPrice()* cash.getQuantity();
         }
 
-        if (check.isDiscount(check.getDiscountCardNumber())) {
+        if (cash.isDiscount(cash.getDiscountCardNumber())) {
             return resultCash * 0.5;
         } else {
             return resultCash;

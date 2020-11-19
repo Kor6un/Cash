@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Check implements Discount {
+public class Cash implements Discount {
 
     private Product product;
 
@@ -9,15 +9,15 @@ public class Check implements Discount {
 
     private int discountCardNumber;
 
-    public Check(Product product, int quantity) {
+    public Cash(Product product, int quantity) {
         this.product = product;
         this.quantity = quantity;
     }
 
-    public Check(Product product, int quantity, int discount) {
+    public Cash(Product product, int quantity, int discountCardNumber) {
         this.product = product;
         this.quantity = quantity;
-        this.discountCardNumber = discount;
+        this.discountCardNumber = discountCardNumber;
     }
 
     public int getQuantity() {
@@ -46,7 +46,12 @@ public class Check implements Discount {
 
     @Override
     public String toString() {
-        return product + " quantity: " + quantity + " cash: " /*+ this.getCash() + "$"*/;
+
+        if (!isDiscount(discountCardNumber)) {
+            return product + "   quantity: " + quantity /*+ " cash: " + this.getCash() + "$"*/;
+        } else {
+            return  product + "   quantity: " + quantity + "   dicountCardNumber: " + discountCardNumber;
+        }
     }
 
 
@@ -54,7 +59,7 @@ public class Check implements Discount {
     public boolean isDiscount(int discountCardNumber) {
 
         Set<Integer> cardNumbers = new HashSet<>();
-        cardNumbers.add(1233);
+        cardNumbers.add(1234);
         cardNumbers.add(2132);
         cardNumbers.add(6544);
         cardNumbers.add(9875);
